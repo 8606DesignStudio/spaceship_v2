@@ -1,88 +1,93 @@
 /* ========== CSS FILE (styles.css) ========== */
-/* This file makes everything look pretty and controls how things appear on screen */
+/* This file contains ALL the styling and appearance rules */
 
-/* Make sure all elements start with no extra space around them */ 
-* {  /* This star means "apply to everything on the page" */
-    margin: 0;  /* No extra space outside elements */
-    padding: 0;  /* No extra space inside elements */
-    box-sizing: border-box;  /* Make sizing calculations easier */
+/* Reset default browser styles and set up box-sizing */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
-/* Style the main page background and layout */ 
-body { /* The body is like the canvas that holds everything */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Use the computer's default font */
-    height: 100vh; /* Make it fill the entire screen height */
-    display: flex; /* Use flexible layout (like building blocks) */
-    align-items: center; /* Center things up and down */
-    justify-content: center; /* Center things left and right */
-    background: #000050 url('public/cockpit.jpg') center/cover no-repeat; /* Show cockpit image with dark blue backup color */
-    color: white; /* Make all text white by default */
-    flex-direction: column; /* Stack things on top of each other */
-    position: relative; /* Allow precise positioning of child elements */
+/* Main body styling - creates the dark blue background and centers everything */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000050 url('public/cockpit.jpg') center/cover no-repeat; /* Cockpit background with dark blue fallback */
+    color: white;
+    flex-direction: column;
+    position: relative;
 }
 
-/* The area where episode titles appear */ 
-.episode { /* This styles the episode title box */
-    position: absolute; /* Put it exactly where we want it (not following normal flow) */
-    top: 20%; /* Put it 20% down from the top of the screen */
-    left: 50%; /* Put it 50% across from the left side */
-    transform: translateX(-50%) perspective(800px) rotateX(15deg); /* Center it and tilt it like a windshield */
-    width: 90%; /* Make it take up 90% of the available width */
-    max-width: 600px; /* But never wider than 600 pixels (so it stays readable) */
-    font-family: 'Quicksand', sans-serif; /* Use the soft, rounded Quicksand font */
-    font-size: 1.2rem; /* Make text a bit bigger than normal */
-    color: #4bb8e9; /* Make text light blue */
-    text-align: center; /* Center all the text */
-    min-height: 60px; /* Always be at least 60 pixels tall */
-    display: flex; /* Use flexible layout inside this box */
-    align-items: center; /* Center content up and down inside the box */
-    justify-content: center; /* Center content left and right inside the box */
-    padding: 15px; /* Add 15 pixels of space inside the edges */
-    text-shadow:  /* Add glowing effect around the text */
-        0 0 5px rgba(75, 184, 233, 0.8), /* Small inner glow - light blue */
+/* Episode title display area */
+.episode {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%) perspective(800px) rotateX(-15deg);
+    width: 90%;
+    max-width: 600px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.2rem;
+    color: #4bb8e9; /* Light blue text color for episode titles */
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-shadow: 
+        0 0 5px rgba(75, 184, 233, 0.8), /* Inner glow - light blue */
         0 0 10px rgba(75, 184, 233, 0.6), /* Medium glow - light blue */
-        0 0 15px rgba(75, 184, 233, 0.4), /* Bigger glow - light blue */
-        0 0 20px rgba(75, 184, 233, 0.2); /* Biggest outer glow - light blue */
+        0 0 15px rgba(75, 184, 233, 0.4), /* Outer glow - light blue */
+        0 0 20px rgba(75, 184, 233, 0.2); /* Furthest glow - light blue */
 }
 
-/* Style the clickable episode links */ 
-.episode a { /* This styles links inside the episode title area */
-    color: #4bb8e9; /* Make links light blue */
-    text-decoration: none; /* Remove the underline that links usually have */
-    transition: color 0.2s; /* When color changes, make it smooth over 0.2 seconds */
+/* Episode link styling */
+.episode a {
+    color: #4bb8e9; /* Light blue color for episode links */
+    text-decoration: none;
+    transition: color 0.2s;
 }
 
-/* What happens when you hover over episode links */ 
-.episode a:hover { /* When someone puts their mouse over a link */
-    color: #87ceeb; /* Change to a lighter sky blue color */
-    text-decoration: underline; /* Add an underline to show it's clickable */
-    text-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Add a sky blue glow effect */
+/* Episode link hover effect */
+.episode a:hover {
+    color: #87ceeb; /* Lighter blue on hover - sky blue */
+    text-decoration: underline;
+    text-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Hover glow - sky blue */
 }
 
-/* The container that holds all three number dials */ 
-.dials { /* This styles the box that contains all the dials */
-    position: absolute; /* Put it exactly where we want it */
-    top: 45%; /* Put it 45% down from the top */
-    left: 50%; /* Put it 50% across from the left */
-    transform: translate(-50%, -50%); /* Center it perfectly in both directions */
-    display: flex; /* Arrange the dials in a row using flexible layout */
-    gap: 5px; /* Put 5 pixels of space between each dial */
+/* Container for the three dials */
+.dials {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 5px;
 }
 
-/* Style each individual number dial */ 
-.dial { /* This styles each of the three number dials */
-    width: 25px; /* Make each dial 25 pixels wide */
-    height: 50px; /* Make each dial 50 pixels tall (rectangular shape) */
-    border-radius: 5px; /* Round the corners slightly */
-    background: linear-gradient(135deg, #ffd700, #ffb347); /* Gold color that fades from bright to darker */
-    border: 4px solid #b8860b; /* Add a darker gold border around the edge */
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Add a soft golden glow around each dial */
-    display: flex; /* Use flexible layout to center the number */
-    align-items: center; /* Center the number up and down */
-    justify-content: center; /* Center the number left and right */
-    cursor: pointer; /* Show a pointing hand when hovering (indicates it's clickable) */
-    transition: transform 0.2s; /* Make any size changes smooth over 0.2 seconds */
-    font-size: 2rem; /* Make the numbers big and easy to read */
-    font-weight: bold; /* Make the numbers thick and bold */
-    color: #8b4513; /* Make the numbers dark brown (shows up well on gold) */
+/* Individual dial styling */
+.dial {
+    width: 25px; /* Fixed width for each dial */
+    height: 50px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #ffd700, #ffb347); /* Gold gradient */
+    border: 4px solid #b8860b; /* Darker gold border */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Glowing effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Show it's clickable */
+    transition: transform 0.2s; /* Smooth scaling animation */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8b4513; /* Dark brown text */
+}
+
+/* Dial hover effect - slightly larger */
+.dial:hover { 
+    transform: scale(1.05); 
 }
