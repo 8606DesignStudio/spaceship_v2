@@ -1,0 +1,95 @@
+/* ========== CSS FILE (styles.css) ========== */
+/* This file contains ALL the styling and appearance rules */
+
+/* Reset default browser styles and set up box-sizing */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+/* Main body styling - creates the dark blue background and centers everything */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000050 url('public/cockpit.jpg') center/cover no-repeat; /* Cockpit background with dark blue fallback */
+    color: white;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Episode title display area */
+.episode {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    font-size: 1.2rem;
+    color: #4bb8e9;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(75, 184, 233, 0.1);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(75, 184, 233, 0.3);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 
+        0 0 20px rgba(75, 184, 233, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 10px rgba(75, 184, 233, 0.5);
+}
+
+/* Episode link styling */
+.episode a {
+    color: #4bb8e9; /* Blue color for links */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+/* Episode link hover effect */
+.episode a:hover {
+    color: #87ceeb; /* Lighter blue on hover */
+    text-decoration: underline;
+    text-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
+}
+
+/* Container for the three dials */
+.dials {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 5px;
+}
+
+/* Individual dial styling */
+.dial {
+    width: 25px; /* Fixed width for each dial */
+    height: 50px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #ffd700, #ffb347); /* Gold gradient */
+    border: 4px solid #b8860b; /* Darker gold border */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Glowing effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Show it's clickable */
+    transition: transform 0.2s; /* Smooth scaling animation */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8b4513; /* Dark brown text */
+}
+
+/* Dial hover effect - slightly larger */
+.dial:hover { 
+    transform: scale(1.05); 
+}
