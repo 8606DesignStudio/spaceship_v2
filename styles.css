@@ -29,6 +29,7 @@ body {
     transform: translateX(-50%) perspective(800px) rotateX(-15deg);
     width: 90%;
     max-width: 600px;
+    font-family: 'Quicksand', sans-serif;
     font-size: 1.2rem;
     color: #4bb8e9;
     text-align: center;
