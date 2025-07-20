@@ -9,11 +9,16 @@ let numbers = [0, 0, 0];
 
 // Create the three dials dynamically and insert them into the HTML
 document.getElementById('dials').innerHTML = numbers.map((n, i) => 
-    `<div class="dial" 
-          onclick="spin(${i})" 
-          ontouchstart="handleTouchStart(event, ${i})" 
-          ontouchend="handleTouchEnd(event)">${n}</div>`
+    `<div class="dial" data-dial-index="${i}">${n}</div>`
 ).join('');
+
+// Attach event listeners after dials are created
+const dialElements = document.querySelectorAll('.dial');
+dialElements.forEach((dial, i) => {
+    dial.addEventListener('click', () => spin(i));
+    dial.addEventListener('touchstart', (e) => handleTouchStart(e, i));
+    dial.addEventListener('touchend', handleTouchEnd);
+});
 
 // Function to increase a dial's number (0-9, wraps around)
 function spin(i) {
