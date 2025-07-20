@@ -150,12 +150,25 @@ document.getElementById('dials').innerHTML = numbers.map((n, i) =>
 // Function to increase a dial's number (0-9, wraps around)
 function spin(i) {
     numbers[i] = (numbers[i] + 1) % 10; // Increment and wrap at 10
+    
+    // Handle carry-over: if this dial wrapped from 9 to 0, increment the next dial
+    if (numbers[i] === 0 && i > 0) {
+        spin(i - 1); // Recursively increment the next higher position
+    }
+    
     update();
 }
 
 // Function to decrease a dial's number (0-9, wraps around)
 function spinDown(i) {
+    const oldValue = numbers[i];
     numbers[i] = (numbers[i] - 1 + 10) % 10; // Decrement and wrap at 0
+    
+    // Handle borrow: if this dial wrapped from 0 to 9, decrement the next dial
+    if (oldValue === 0 && i > 0) {
+        spinDown(i - 1); // Recursively decrement the next higher position
+    }
+    
     update();
 }
 
