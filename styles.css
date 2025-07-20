@@ -31,7 +31,7 @@ body {
     max-width: 600px;
     font-family: 'Quicksand', sans-serif;
     font-size: 1.2rem;
-    color: #4bb8e9;
+    color: #4bb8e9; /* Light blue text color for episode titles */
     text-align: center;
     min-height: 60px;
     display: flex;
@@ -39,24 +39,24 @@ body {
     justify-content: center;
     padding: 15px;
     text-shadow: 
-        0 0 5px rgba(75, 184, 233, 0.8),
-        0 0 10px rgba(75, 184, 233, 0.6),
-        0 0 15px rgba(75, 184, 233, 0.4),
-        0 0 20px rgba(75, 184, 233, 0.2);
+        0 0 5px rgba(75, 184, 233, 0.8), /* Inner glow - light blue */
+        0 0 10px rgba(75, 184, 233, 0.6), /* Medium glow - light blue */
+        0 0 15px rgba(75, 184, 233, 0.4), /* Outer glow - light blue */
+        0 0 20px rgba(75, 184, 233, 0.2); /* Furthest glow - light blue */
 }
 
 /* Episode link styling */
 .episode a {
-    color: #4bb8e9; /* Blue color for links */
+    color: #4bb8e9; /* Light blue color for episode links */
     text-decoration: none;
     transition: color 0.2s;
 }
 
 /* Episode link hover effect */
 .episode a:hover {
-    color: #87ceeb; /* Lighter blue on hover */
+    color: #87ceeb; /* Lighter blue on hover - sky blue */
     text-decoration: underline;
-    text-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
+    text-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Hover glow - sky blue */
 }
 
 /* Container for the three dials */
