@@ -1,93 +1,88 @@
 /* ========== CSS FILE (styles.css) ========== */
 /* This file contains ALL the styling and appearance rules */
 
-/* Reset default browser styles and set up box-sizing */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+/* Reset default browser styles and set up box-sizing */ 
+* {  /* Universal selector - applies to all elements */
+    margin: 0;  /* Remove default margins from all elements */
+    padding: 0;  /* Remove default padding from all elements */
+    box-sizing: border-box;  /* Include padding and border in element's total width and height */
 }
 
-/* Main body styling - creates the dark blue background and centers everything */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Main body styling - creates the dark blue background and centers everything */ 
+body { /* Body element - main container for all content */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* System font stack for cross-platform compatibility */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
     background: #000050 url('public/cockpit.jpg') center/cover no-repeat; /* Cockpit background with dark blue fallback */
-    color: white;
-    flex-direction: column;
-    position: relative;
+    color: white; /* Default text color for all content */
+    flex-direction: column; /* Stack flex items vertically */
+    position: relative; /* Enable absolute positioning for child elements */
 }
 
-/* Episode title display area */
-.episode {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%) perspective(800px) rotateX(-15deg);
-    width: 90%;
-    max-width: 600px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.2rem;
+/* Episode title display area */ 
+.episode { /* Class selector for episode title container */
+    position: absolute; /* Remove from normal document flow for precise positioning */
+    top: 20%; /* Position 20% from top of viewport */
+    left: 50%; /* Position 50% from left edge */
+    transform: translateX(-50%) perspective(800px) rotateX(15deg); /* Center horizontally and apply 3D windshield tilt effect */
+    width: 90%; /* Take up 90% of container width */
+    max-width: 600px; /* Maximum width constraint for readability */
+    font-family: 'Quicksand', sans-serif; /* Soft rounded font for glass-like appearance */
+    font-size: 1.2rem; /* Relative font size - 1.2 times the root element size */
     color: #4bb8e9; /* Light blue text color for episode titles */
-    text-align: center;
-    min-height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    text-shadow: 
+    text-align: center; /* Center-align all text content */
+    min-height: 60px; /* Minimum height to prevent layout shifts */
+    display: flex; /* Enable flexbox for content alignment */
+    align-items: center; /* Center content vertically within container */
+    justify-content: center; /* Center content horizontally within container */
+    padding: 15px; /* Internal spacing around content */
+    text-shadow:  /* Multiple shadow layers for glowing effect */
         0 0 5px rgba(75, 184, 233, 0.8), /* Inner glow - light blue */
         0 0 10px rgba(75, 184, 233, 0.6), /* Medium glow - light blue */
         0 0 15px rgba(75, 184, 233, 0.4), /* Outer glow - light blue */
         0 0 20px rgba(75, 184, 233, 0.2); /* Furthest glow - light blue */
 }
 
-/* Episode link styling */
-.episode a {
+/* Episode link styling */ 
+.episode a { /* Anchor tags within episode container */
     color: #4bb8e9; /* Light blue color for episode links */
-    text-decoration: none;
-    transition: color 0.2s;
+    text-decoration: none; /* Remove default underline from links */
+    transition: color 0.2s; /* Smooth color change animation on hover */
 }
 
-/* Episode link hover effect */
-.episode a:hover {
+/* Episode link hover effect */ 
+.episode a:hover { /* Hover state for episode links */
     color: #87ceeb; /* Lighter blue on hover - sky blue */
-    text-decoration: underline;
+    text-decoration: underline; /* Add underline on hover for visual feedback */
     text-shadow: 0 0 15px rgba(135, 206, 235, 0.8); /* Hover glow - sky blue */
 }
 
-/* Container for the three dials */
-.dials {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 5px;
+/* Container for the three dials */ 
+.dials { /* Class selector for dial container */
+    position: absolute; /* Remove from normal flow for precise positioning */
+    top: 45%; /* Position 45% from top of viewport */
+    left: 50%; /* Position 50% from left edge */
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+    display: flex; /* Enable flexbox layout for dial arrangement */
+    gap: 5px; /* Space between individual dials */
 }
 
-/* Individual dial styling */
-.dial {
+/* Individual dial styling */ 
+.dial { /* Class selector for each individual dial */
     width: 25px; /* Fixed width for each dial */
-    height: 50px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #ffd700, #ffb347); /* Gold gradient */
-    border: 4px solid #b8860b; /* Darker gold border */
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Glowing effect */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer; /* Show it's clickable */
-    transition: transform 0.2s; /* Smooth scaling animation */
-    font-size: 2rem;
-    font-weight: bold;
-    color: #8b4513; /* Dark brown text */
-}
-
-/* Dial hover effect - slightly larger */
-.dial:hover { 
-    transform: scale(1.05); 
+    height: 50px; /* Fixed height for rectangular dial shape */
+    border-radius: 5px; /* Rounded corners for softer appearance */
+    background: linear-gradient(135deg, #ffd700, #ffb347); /* Gold gradient from top-left to bottom-right */
+    border: 4px solid #b8860b; /* Darker gold border for definition */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); /* Glowing effect around dial */
+    display: flex; /* Enable flexbox for number centering */
+    align-items: center; /* Center number vertically */
+    justify-content: center; /* Center number horizontally */
+    cursor: pointer; /* Show it's clickable with pointer cursor */
+    transition: transform 0.2s; /* Smooth scaling animation on interaction */
+    font-size: 2rem; /* Large font size for dial numbers */
+    font-weight: bold; /* Bold text for better visibility */
+    color: #8b4513; /* Dark brown text for contrast against gold background */
 }
