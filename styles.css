@@ -71,13 +71,12 @@ body {
     z-index: 1000;
 }
 
-.stripe-button button {
+.stripe-button a {
     display: inline-block;
     padding: 8px 16px;
     background: linear-gradient(135deg, #4bb8e9, #87ceeb); /* Light blue gradient to match episode titles */
     color: white;
-    border: none;
-    cursor: pointer;
+    text-decoration: none;
     border-radius: 6px;
     font-family: 'Quicksand', sans-serif;
     font-size: 0.9rem;
@@ -88,7 +87,7 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
-.stripe-button button:hover {
+.stripe-button a:hover {
     background: linear-gradient(135deg, #87ceeb, #add8e6); /* Lighter blue hover effect */
     transform: translateY(-1px);
     box-shadow: 
