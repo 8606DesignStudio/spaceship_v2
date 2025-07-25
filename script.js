@@ -100,3 +100,26 @@ function update() {
 
 // Initialize the display
 update();
+
+// ========== MODAL FUNCTIONALITY ========== 
+// Get modal elements
+const donateBtn = document.getElementById('donate-btn');
+const modal = document.getElementById('stripe-modal');
+
+// Show modal when donate button is clicked
+donateBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent event bubbling
+    modal.classList.add('show');
+});
+
+// Hide modal when clicking outside the modal content
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('show');
+    }
+});
+
+// Prevent modal from closing when clicking inside the modal content
+modal.querySelector('.modal-content').addEventListener('click', (e) => {
+    e.stopPropagation();
+});
