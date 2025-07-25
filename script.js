@@ -101,11 +101,16 @@ function update() {
 // Initialize the display
 update();
 
-// Handle donate button click
-document.getElementById('donate-btn').addEventListener('click', function() {
-    // Trigger the Stripe buy button click
-    const stripeBuyButton = document.querySelector('stripe-buy-button');
-    if (stripeBuyButton) {
-        stripeBuyButton.click();
+// Handle donate button click - wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const donateBtn = document.getElementById('donate-btn');
+    if (donateBtn) {
+        donateBtn.addEventListener('click', function() {
+            // Trigger the Stripe buy button click
+            const stripeBuyButton = document.querySelector('stripe-buy-button');
+            if (stripeBuyButton) {
+                stripeBuyButton.click();
+            }
+        });
     }
 });
