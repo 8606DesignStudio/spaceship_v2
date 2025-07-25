@@ -101,16 +101,14 @@ function update() {
 // Initialize the display
 update();
 
-// Handle donate button click - wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    const donateBtn = document.getElementById('donate-btn');
-    if (donateBtn) {
-        donateBtn.addEventListener('click', function() {
-            // Trigger the Stripe buy button click
-            const stripeBuyButton = document.querySelector('stripe-buy-button');
-            if (stripeBuyButton) {
-                stripeBuyButton.click();
-            }
-        });
+// Handle donate button click
+function handleDonateClick() {
+    console.log('Donate button clicked!'); // Debug log
+    const stripeBuyButton = document.querySelector('stripe-buy-button');
+    console.log('Stripe button found:', stripeBuyButton); // Debug log
+    if (stripeBuyButton) {
+        stripeBuyButton.click();
+    } else {
+        console.error('Stripe buy button not found');
     }
-});
+}
