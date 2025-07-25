@@ -13,11 +13,18 @@
     
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Stripe Buy Button Script -->
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
     <!-- Stripe button in top left corner -->
     <div class="stripe-button">
-        <a href="https://buy.stripe.com/test_eVqfZ93ZD5d6gjS0Fu2Ji00" target="_blank">Donate</a>
+        <stripe-buy-button
+            buy-button-id="buy_btn_1RouDx0ximsp7uT7Lm7Onnvq"
+            publishable-key="pk_test_51Rotf70ximsp7uT7HNXJllJnXStIHywFY1MzLtBCbzRLjv2ERSGL8YPF8U3USbYt2zKPcFQpOwItgOjisCKh9NrR00GvinUlN9"
+        >
+        </stripe-buy-button>
     </div>
     
     <!-- Episode display area - shows current episode title/link -->
