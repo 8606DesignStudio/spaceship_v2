@@ -100,3 +100,12 @@ function update() {
 
 // Initialize the display
 update();
+
+// Handle donate button click
+document.getElementById('donate-btn').addEventListener('click', function() {
+    // Trigger the Stripe buy button click
+    const stripeBuyButton = document.querySelector('stripe-buy-button');
+    if (stripeBuyButton) {
+        stripeBuyButton.click();
+    }
+});
