@@ -63,6 +63,38 @@ body {
         0 0 25px rgba(123, 104, 238, 0.6); /* Outer hover glow - medium slate blue */
 }
 
+/* Stripe button styling */
+.stripe-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.stripe-button a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #6772e5, #5469d4);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 2px 8px rgba(103, 114, 229, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.stripe-button a:hover {
+    background: linear-gradient(135deg, #7c8aed, #6b7ce6);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 12px rgba(103, 114, 229, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
 /* Container for the three dials */
 .dials {
     position: absolute;
