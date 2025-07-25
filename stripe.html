@@ -8,6 +8,9 @@
     <!-- Google Fonts - Quicksand for softer glass-like text -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+    
     <style>
         * { 
             margin: 0; 
@@ -111,6 +114,61 @@
             color: #6772e5;
             font-weight: bold;
         }
+
+        .checkout-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(103, 114, 229, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(103, 114, 229, 0.3);
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #6772e5;
+            margin-bottom: 10px;
+        }
+
+        .checkout-button {
+            background: linear-gradient(135deg, #6772e5, #5469d4);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(103, 114, 229, 0.3);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .checkout-button:hover {
+            background: linear-gradient(135deg, #5469d4, #4c63d2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(103, 114, 229, 0.4);
+        }
+
+        .checkout-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #error-message {
+            color: #ff6b6b;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -134,7 +192,78 @@
             <li>Real-time analytics</li>
         </ul>
         
-        <p>This page is currently in development. Payment functionality will be added soon!</p>
+        <div class="checkout-section">
+            <h2>Support the Podcast</h2>
+            
+            <div class="price-card">
+                <div class="price">$5.00</div>
+                <p>One-time donation to support Heart Emoji Podcast</p>
+                <button id="checkout-button" class="checkout-button">
+                    Donate $5 with Stripe
+                </button>
+                <div id="error-message"></div>
+            </div>
+            
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 20px;">
+                Secure payment processing powered by Stripe. Your payment information is encrypted and secure.
+            </p>
+        </div>
     </div>
+
+    <script>
+        // Initialize Stripe
+        // Replace 'pk_test_...' with your actual Stripe publishable key
+        const stripe = Stripe('pk_test_51234567890abcdef'); // You need to replace this with your actual key
+        
+        const checkoutButton = document.getElementById('checkout-button');
+        const errorMessage = document.getElementById('error-message');
+        
+        checkoutButton.addEventListener('click', async () => {
+            checkoutButton.disabled = true;
+            checkoutButton.textContent = 'Processing...';
+            errorMessage.textContent = '';
+            
+            try {
+                // This would typically call your backend to create a checkout session
+                // For now, this is a placeholder that shows how it would work
+                
+                // Example of what you'd do with a real backend:
+                /*
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        amount: 500, // $5.00 in cents
+                        currency: 'usd',
+                        description: 'Heart Emoji Podcast Donation'
+                    }),
+                });
+                
+                const session = await response.json();
+                
+                const result = await stripe.redirectToCheckout({
+                    sessionId: session.id
+                });
+                
+                if (result.error) {
+                    errorMessage.textContent = result.error.message;
+                }
+                */
+                
+                // For demonstration purposes, show a message
+                errorMessage.style.color = '#4bb8e9';
+                errorMessage.textContent = 'Demo mode: You would need to set up your Stripe backend to process real payments.';
+                
+            } catch (error) {
+                errorMessage.textContent = 'An error occurred. Please try again.';
+                console.error('Error:', error);
+            } finally {
+                checkoutButton.disabled = false;
+                checkoutButton.textContent = 'Donate $5 with Stripe';
+            }
+        });
+    </script>
 </body>
 </html>
