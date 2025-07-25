@@ -100,15 +100,3 @@ function update() {
 
 // Initialize the display
 update();
-
-// Handle donate button click
-function handleDonateClick() {
-    console.log('Donate button clicked!'); // Debug log
-    const stripeBuyButton = document.querySelector('stripe-buy-button');
-    console.log('Stripe button found:', stripeBuyButton); // Debug log
-    if (stripeBuyButton) {
-        stripeBuyButton.click();
-    } else {
-        console.error('Stripe buy button not found');
-    }
-}
