@@ -66,7 +66,7 @@ body {
 /* Stripe button styling */
 .stripe-button {
     position: absolute;
-    top: 20px;
+    bottom: 20px;
     left: 20px;
     z-index: 1000;
 }
@@ -74,7 +74,7 @@ body {
 .stripe-button a {
     display: inline-block;
     padding: 8px 16px;
-    background: linear-gradient(135deg, #6772e5, #5469d4);
+    background: linear-gradient(135deg, #4bb8e9, #87ceeb); /* Light blue gradient to match episode titles */
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -83,15 +83,15 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 
-        0 2px 8px rgba(103, 114, 229, 0.3),
+        0 2px 8px rgba(75, 184, 233, 0.3), /* Light blue shadow to match */
         0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .stripe-button a:hover {
-    background: linear-gradient(135deg, #7c8aed, #6b7ce6);
+    background: linear-gradient(135deg, #87ceeb, #add8e6); /* Lighter blue hover effect */
     transform: translateY(-1px);
     box-shadow: 
-        0 4px 12px rgba(103, 114, 229, 0.4),
+        0 4px 12px rgba(75, 184, 233, 0.4), /* Enhanced light blue shadow on hover */
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
