@@ -95,6 +95,37 @@ body {
         0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
+/* Large test button styling */
+.test-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.test-button button {
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    border: 4px solid #b8860b;
+    border-radius: 12px;
+    color: #8b4513;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.5),
+        0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.test-button button:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.7),
+        0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
 /* Container for the three dials */
 .dials {
     position: absolute;
